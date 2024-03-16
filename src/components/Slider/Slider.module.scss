@@ -1,0 +1,31 @@
+@import "../../scss/variables";
+
+.slider__item__row {
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: $title;
+    margin: 0 0 10px 0;
+
+    @media (max-width: 1120px) {
+      font-size: 16px;
+    }
+  }
+  &__text {
+    position: relative;
+    z-index: -1;
+    font-size: 18px;
+    font-weight: 400;
+    color: $text;
+
+    @media (max-width: 1121px) {
+      font-size: 16px;
+    }
+    @media (max-width: 710px) {
+      font-size: 14px;
+    }
+    @media (max-width: 500px) {
+      line-height: 20px;
+    }
+  }
+}

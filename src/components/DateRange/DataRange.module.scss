@@ -1,0 +1,56 @@
+@import "../../scss/variables";
+
+.date {
+  position: absolute;
+  padding: 0 1rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  z-index: 2;
+  @media (max-width: 600px) {
+    top: 40%;
+  }
+  @media (max-width: 500px) {
+    top: 35%;
+  }
+
+  // border: 1px solid red;
+  &__content {
+    display: flex;
+    span {
+      font-size: 190px;
+      font-weight: 700;
+      letter-spacing: -5px;
+      color: #ef5da8;
+      user-select: none;
+
+      &:not(:last-of-type) {
+        color: #5d5fef;
+        margin: 0 100px 0 0;
+
+        @media (max-width: 1050px) {
+          margin: 0 40px 0 0;
+        }
+      }
+
+      @media (max-width: 1050px) {
+        font-size: 150px;
+      }
+
+      @media (max-width: 800px) {
+        font-size: 100px;
+      }
+      @media (max-width: 500px) {
+        font-size: 70px;
+      }
+      @media (max-width: 400px) {
+        font-size: 60px;
+      }
+    }
+  }
+}

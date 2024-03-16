@@ -1,0 +1,38 @@
+@import "../../scss/variables";
+
+.header {
+  position: absolute;
+  // left: 5%;
+  top: 80px;
+  max-width: 250px;
+  line-height: 60px;
+
+  &__title {
+    color: $text;
+    font-size: 50px;
+    font-weight: 700;
+
+    @media (max-width: 800px) {
+      line-height: 1;
+      font-size: 35px;
+    }
+    @media (max-width: 500px) {
+      line-height: 1;
+      font-size: 25px;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -28.5%;
+    height: 100%;
+    width: 5px;
+    background: rgb(56, 119, 238);
+    background: linear-gradient(180deg, rgba(56, 119, 238, 1) 24%, rgba(239, 93, 168, 1) 73%);
+  }
+
+  @media (max-width: 500px) {
+    max-width: 150px;
+  }
+}
