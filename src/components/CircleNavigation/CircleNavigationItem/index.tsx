@@ -20,23 +20,18 @@ export const CircleNavigationItem = forwardRef<HTMLDivElement, CircleNavigationI
       });
     });
 
-    React.useEffect(() => {
-      if (isActivePoint && activeIndex) {
-        rotateCircleItem();
-      }
-    }, [activeIndex]);
-
     const handleLableView = contextSafe(() => {
       gsap.from(labelRef.current, {
         opacity: 0,
         delay: 1.5,
-        duration: 0.5,
+        duration: 1,
       });
     });
 
     React.useEffect(() => {
-      if (label && activeIndex) {
+      if (activeIndex) {
         handleLableView();
+        rotateCircleItem();
       }
     }, [activeIndex]);
 

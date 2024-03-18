@@ -17,15 +17,17 @@ import gsap from 'gsap';
 
 type Props = {
   data: SliderItemProps[];
+  activeLabel?: string | undefined;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const Slider: React.FC<Props> = ({ data }) => {
+export const Slider: React.FC<Props> = ({ data, activeLabel }) => {
   const swiperRef = React.useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(swiperRef.current, {
         opacity: 0,
+        y: 20,
         delay: 1,
         duration: 0.5,
       });
@@ -35,40 +37,38 @@ export const Slider: React.FC<Props> = ({ data }) => {
   });
 
   return (
-    <Swiper
-      className="mySwiper"
-      slidesPerView={3}
-      spaceBetween={80}
-      modules={[Pagination, Navigation]}
-      navigation={true}
-      watchOverflow={true}
-      ref={swiperRef}
-      breakpoints={{
-        320: {
-          slidesPerView: 2,
-          // spaceBetween: 0,
-          spaceBetween: 20,
-        },
-        600: {
-          slidesPerView: 2,
-          spaceBetween: 40,
-        },
-        1023: {
-          slidesPerView: 3,
-          // spaceBetween: 0,
-        },
-      }}>
-      {data.length > 0 &&
-        data.map((item, index) => (
-          <SwiperSlide key={index}>
-            <SliderItem>
-              <div className={s.slider__item__row}>
-                <h1 className={s.slider__item__row__title}>{item.date}</h1>
-                <p className={s.slider__item__row__text}>{item.text}</p>
-              </div>
-            </SliderItem>
-          </SwiperSlide>
-        ))}
-    </Swiper>
+    <>
+      <Swiper
+        className="mySwiper"
+        modules={[Pagination, Navigation]}
+        grabCursor={true}
+        navigation={true}
+        initialSlide={0}
+        watchOverflow={true}
+        ref={swiperRef}
+        data-label={activeLabel}
+        breakpoints={{
+          320: {
+            slidesPerView: 1.5,
+            centeredSlidesBounds: true,
+            spaceBetween: 20,
+          },
+          600: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1023: {
+            slidesPerView: 3,
+            spaceBetween: 80,
+          },
+        }}>
+        {data.length > 0 &&
+          data.map((item, index) => (
+            <SwiperSlide key={index}>
+              <SliderItem {...item} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
+    </>
   );
 };

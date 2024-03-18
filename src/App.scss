@@ -3,8 +3,8 @@
 .wrapper {
   position: relative;
 
-  min-height: 110vh;
-  // overflow: hidden;
+  min-height: 115vh;
+  overflow: hidden;
 }
 
 .container {
@@ -60,7 +60,6 @@
   @media (max-width: 600px) {
     padding: 0;
   }
-  // border: 1px solid #42567a2f;
 
   &::before {
     content: "";
@@ -77,10 +76,7 @@
     -o-transform: translate(0%, -50%);
 
     @media (max-width: 600px) {
-      top: 60%;
-    }
-    @media (max-width: 500px) {
-      top: 55%;
+      display: none;
     }
   }
   &::after {
@@ -98,60 +94,68 @@
   }
 }
 
-.swiper-wrapper {
-  position: relative;
-  z-index: 2;
-}
-
 .mySwiper {
   position: absolute !important;
   bottom: -50px !important;
   padding: 0 $containerSize !important;
-
   left: 0;
-  cursor: grab;
   width: 100%;
 
   @media (max-width: 600px) {
-    padding: 0px !important;
-    bottom: 10% !important;
-  }
-  @media (max-width: 500px) {
-    bottom: 15% !important;
+    padding: 30px 0 0 0 !important ;
+    bottom: 13% !important;
+    overflow: visible !important;
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    width: 60px;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-color: $bg;
-    z-index: 2;
-
-    @media (max-width: 600px) {
-      display: none;
+  @media (min-width: 600px) {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: $bg;
+      z-index: 2;
     }
   }
-  &::after {
-    content: "";
-
-    position: absolute;
-    width: 60px;
-    height: 100%;
-    top: 0;
-    right: 0;
-    background-color: $bg;
-    z-index: 2;
-
-    @media (max-width: 600px) {
-      display: none;
-    }
-  }
-
   @media (max-width: 600px) {
-    padding: 0;
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      top: 2%;
+      width: 100%;
+
+      background-color: $line_mobile;
+      height: 1px;
+    }
+  }
+  @media (min-width: 600px) {
+    &::after {
+      content: "";
+
+      position: absolute;
+      width: 60px;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background-color: $bg;
+      z-index: 2;
+    }
+  }
+  @media (max-width: 600px) {
+    &::after {
+      content: attr(data-label);
+
+      position: absolute;
+      font-weight: 700;
+      color: $text;
+      font-size: 16px;
+      top: -25%;
+      left: 0;
+    }
   }
 }
 
@@ -202,16 +206,11 @@
   -o-transform: rotate(-180deg);
 }
 
-.mobile__label {
-  position: absolute;
-  left: 0%;
-  top: 50%;
-
-  font-weight: 700;
-  color: $text;
-  font-size: 16px;
-
-  @media (max-width: 500px) {
-    top: 47%;
+@media (max-width: 600px) {
+  .swiper-slide-next {
+    opacity: 0.25 !important;
+  }
+  .swiper-slide-active {
+    opacity: 1 !important;
   }
 }

@@ -26,7 +26,7 @@ export const DateRange = forwardRef<HTMLDivElement, { dateRange: number[]; activ
           if (currentValue >= rangeCount) {
             clearInterval(interval);
           }
-        }, 150);
+        }, 100);
       }
     };
 

@@ -24,10 +24,6 @@
   -o-transform: translate(-50%, -50%);
   z-index: 3;
 
-  @media (max-width: 600px) {
-    display: none;
-  }
-  // overflow: hidden;
   &__content {
     position: absolute;
     left: 0%;
@@ -37,5 +33,9 @@
   @media (max-width: 1050px) {
     width: 306px;
     height: 300px;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
   }
 }

@@ -42,10 +42,9 @@ export const Content = () => {
       />
 
       <DateRange dateRange={dateRange} activeIndex={activeIndex} />
-      {window.innerWidth < 500 ? <span className="mobile__label">{activeLabel}</span> : null}
 
       <CircleController circleDataLength={navigationData.length} />
-      <Slider data={historyData} />
+      <Slider data={historyData} activeLabel={activeLabel} />
     </main>
   );
 };
